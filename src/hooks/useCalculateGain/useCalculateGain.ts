@@ -1,16 +1,16 @@
 import { useMemo, useCallback } from 'react';
 import shallow from 'zustand/shallow';
-import { useStore } from '../useStore';
+import { useStore } from '../../useStore';
 
 const NO_OF_MONTHS = 12;
 
 export const useCalculateGain = () => {
   const { investedAmount, expectedReturn, timePeriod } = useStore(
     useCallback(
-      (state) => ({
-        expectedReturn: state.expectedReturn,
-        timePeriod: state.timePeriod,
-        investedAmount: state.investedAmount,
+      ({ expectedReturn, timePeriod, investedAmount }) => ({
+        expectedReturn,
+        timePeriod,
+        investedAmount,
       }),
       [],
     ),

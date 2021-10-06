@@ -1,8 +1,6 @@
-import React, { useMemo, useCallback } from 'react';
+import React from 'react';
 import { Container, Grid, Typography } from '@mui/material';
-import { useStore } from '../../useStore';
-import shallow from 'zustand/shallow';
-import { useCalculateGain } from '../../hooks/useCalculateGain';
+import { useCalculateGain } from '../../hooks';
 
 const formatter = (number: number) =>
   new Intl.NumberFormat('sv-SE', {
@@ -17,11 +15,11 @@ export const Result = () => {
     <Container maxWidth="xs">
       <Grid container marginTop={3}>
         <Grid container>
-          <Grid item flex="1">
+          <Grid item flex="1" color={(t) => t.palette.info.main}>
             <Typography fontWeight={300}>Total Invested Amount</Typography>
             <Typography variant="h6">{formatter(totalInvestment)}</Typography>
           </Grid>
-          <Grid item>
+          <Grid item color={(t) => t.palette.primary.main}>
             <Typography fontWeight={300}>Est. Returns</Typography>
             <Typography variant="h6">{formatter(wealthGained)}</Typography>
           </Grid>

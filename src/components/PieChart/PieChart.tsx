@@ -1,8 +1,9 @@
 import React from 'react';
 import { Grid, Typography, useTheme } from '@mui/material';
 import { PieChart as PChart } from 'react-minimal-pie-chart';
-import { useCalculateGain } from '../../hooks/useCalculateGain';
 import { Box } from '@mui/system';
+
+import { useCalculateGain } from '../../hooks';
 
 export const PieChart = () => {
   const { totalInvestment, wealthGained } = useCalculateGain();
@@ -11,13 +12,13 @@ export const PieChart = () => {
     <>
       <Grid container direction="row" justifyContent="center" alignItems="center">
         <Grid item mr={1}>
-          <Box sx={{ width: 25, height: 10, backgroundColor: theme.palette.primary.main }} />
+          <Box sx={{ width: 25, height: 10, backgroundColor: theme.palette.info.main }} />
         </Grid>
         <Grid item mr={1}>
           <Typography variant="subtitle2">Total Investment</Typography>
         </Grid>
         <Grid item mr={1}>
-          <Box sx={{ width: 25, height: 10, backgroundColor: theme.palette.warning.dark }} />
+          <Box sx={{ width: 25, height: 10, backgroundColor: theme.palette.primary.main }} />
         </Grid>
         <Grid item>
           <Typography variant="subtitle2">Est. Returns</Typography>
@@ -25,11 +26,11 @@ export const PieChart = () => {
       </Grid>
       <PChart
         animate
-        lineWidth={30}
-        paddingAngle={2}
+        lineWidth={35}
+        paddingAngle={5}
         data={[
-          { title: 'Total Investment', value: totalInvestment, color: theme.palette.primary.main },
-          { title: 'Est. Returns', value: wealthGained, color: theme.palette.warning.dark },
+          { title: 'Total Investment', value: totalInvestment, color: theme.palette.info.main },
+          { title: 'Est. Returns', value: wealthGained, color: theme.palette.primary.main },
         ]}
       />
     </>

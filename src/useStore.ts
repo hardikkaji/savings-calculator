@@ -10,7 +10,7 @@ type State = {
 export const useStore = create<State>((set) => ({
   investedAmount: 2500,
   expectedReturn: 12,
-  timePeriod: 10,
+  timePeriod: 15,
   locale: 'sv-SE',
   setStoreValue: (key: string, value: number) => {
     set((state) => ({ ...state, [key]: value }));
