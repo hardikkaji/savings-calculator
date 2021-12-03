@@ -8,7 +8,14 @@ export const Calculator = () => {
       <Grid container pt={4} spacing={4}>
         <Grid item flex="1" md={8} xs={12} sm={8}>
           <SliderInput
-            label="Monthly Savings"
+            label="Starting amount"
+            endAdornment="kr"
+            max={1000000}
+            step={500}
+            fieldName="startingAmount"
+          />
+          <SliderInput
+            label="Investment per month"
             endAdornment="kr"
             max={100000}
             step={500}

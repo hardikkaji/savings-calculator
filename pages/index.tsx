@@ -1,7 +1,7 @@
 import React from 'react';
 import type { NextPage } from 'next';
 import Head from 'next/head';
-import { AppBar, SvgIcon, Toolbar, Typography } from '@mui/material';
+import { AppBar, Button, SvgIcon, Toolbar, Typography } from '@mui/material';
 
 import { Copyright, Calculator } from '../src/components';
 
@@ -19,6 +19,9 @@ const Home: NextPage = () => {
           <Typography pl={1} variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Savings Calculator
           </Typography>
+          <Button size="small" color="inherit">
+            <Typography variant="subtitle2">English | SEK</Typography>
+          </Button>
         </Toolbar>
       </AppBar>
       <Calculator />

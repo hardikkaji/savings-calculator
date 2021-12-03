@@ -17,7 +17,7 @@ type Props = {
   startAdornment?: string;
   endAdornment?: string;
   label: string;
-  fieldName: 'investedAmount' | 'timePeriod' | 'expectedReturn';
+  fieldName: 'investedAmount' | 'timePeriod' | 'expectedReturn' | 'startingAmount';
 };
 
 export const SliderInput = ({
