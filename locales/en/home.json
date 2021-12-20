@@ -1,0 +1,11 @@
+{
+  "startingAmount": "Starting amount",
+  "investmentPerMonth": "Investment per month",
+  "timePeriod": "Time Period",
+  "expectedReturn": "Expected Return Rate",
+  "poweredBy": "Powered By ",
+  "totalInvestedAmount": "Total Invested Amount",
+  "totalInvested": "Total Invested",
+  "estReturns": "Est. Returns",
+  "totalValue": "Total Value"
+}

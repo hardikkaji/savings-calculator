@@ -1,0 +1,11 @@
+{
+  "startingAmount": "Startbelopp",
+  "investmentPerMonth": "Investering per månad",
+  "timePeriod": "Spartid i år",
+  "expectedReturn": "Avkastning per år ",
+  "poweredBy": "Drivs av ",
+  "totalInvestedAmount": "Totalt investerat belopp",
+  "totalInvested": "Totalt investerat",
+  "estReturns": "Uppskattad Returnerar",
+  "totalValue": "Totala värdet"
+}
