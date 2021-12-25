@@ -1,4 +1,5 @@
 {
+  "appTitle": "Sparande Kalkylator",
   "startingAmount": "Startbelopp",
   "investmentPerMonth": "Investering per månad",
   "timePeriod": "Spartid i år",
@@ -6,6 +7,12 @@
   "poweredBy": "Drivs av ",
   "totalInvestedAmount": "Totalt investerat belopp",
   "totalInvested": "Totalt investerat",
-  "estReturns": "Uppskattad Returnerar",
-  "totalValue": "Totala värdet"
+  "estReturns": "Uppskattad returnerar",
+  "totalValue": "Totala värdet",
+  "currentLang": "Svenska",
+  "dialogTitle": "Ändra språk och valuta",
+  "dialogSave": "Spara",
+  "dialogCancel": "Avboka",
+  "language": "Ändra språk",
+  "currency": "Ändra valuta"
 }
