@@ -509,6 +509,11 @@
   resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.10.2.tgz#0798c03351f0dea1a5a4cabddf26a55a7cbee590"
   integrity sha512-IXf3XA7+XyN7CP9gGh/XB0UxVMlvARGEgGXLubFICsUMGz6Q+DU+i4gGlpOxTjKvXjkJDJC8YdqdKkDj9qZHEQ==
 
+"@rehooks/local-storage@^2.4.3":
+  version "2.4.3"
+  resolved "https://registry.yarnpkg.com/@rehooks/local-storage/-/local-storage-2.4.3.tgz#51176b823dac0aa6cfa2220acdca613e370319c1"
+  integrity sha512-/Ohn+SnJm1eE3uXv3gsXLE4G6EYT3baqi4V/syyKfbyLoXmTn8h5ciY2ELug3xslzFNUMWyTGY3Ow47gl6k3kA==
+
 "@rushstack/eslint-patch@^1.0.6":
   version "1.0.7"
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.0.7.tgz#82f83dcc2eb9b1e1d559b3aca96783e285eb8592"

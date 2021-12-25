@@ -2,19 +2,22 @@ import React from 'react';
 import useTranslation from 'next-translate/useTranslation';
 import { FormControl, InputLabel, Select, MenuItem } from '@mui/material';
 import { useFormContext } from 'react-hook-form';
+import { useSettings } from '../../hooks';
 
 const langOptions = [
   { value: 'en', label: 'English' },
   { value: 'sv', label: 'Svenska' },
 ];
 const currencyOptions = [
-  { value: 'USD', label: 'USD - $' },
   { value: 'SEK', label: 'SEK - kr' },
+  { value: 'USD', label: 'USD - $' },
+  { value: 'INR', label: 'INR - ₹' },
 ];
 
 export const SettingsForm: React.FC<{ fullScreen: boolean }> = ({ fullScreen }) => {
   const { t, lang } = useTranslation('home');
   const { register } = useFormContext();
+  const { settings } = useSettings();
 
   return (
     <>
@@ -41,15 +44,22 @@ export const SettingsForm: React.FC<{ fullScreen: boolean }> = ({ fullScreen }) 
           ))}
         </Select>
       </FormControl>
-      {/* <br />
       <br />
-      <FormControl sx={{ minWidth: 400 }} fullWidth={fullScreen}>
+      <br />
+      <FormControl
+        sx={{
+          minWidth: {
+            md: 400,
+          },
+        }}
+        fullWidth={fullScreen}
+      >
         <InputLabel id="currency">{t('currency')}</InputLabel>
         <Select
           labelId="currency"
           id="currency"
           label={t('currency')}
-          defaultValue={lang}
+          defaultValue={settings.currency || 'SEK'}
           {...register('currency')}
         >
           {currencyOptions.map((option) => (
@@ -58,7 +68,7 @@ export const SettingsForm: React.FC<{ fullScreen: boolean }> = ({ fullScreen }) 
             </MenuItem>
           ))}
         </Select>
-      </FormControl> */}
+      </FormControl>
     </>
   );
 };

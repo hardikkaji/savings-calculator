@@ -12,31 +12,34 @@ import {
 } from '@mui/material';
 import useTranslation from 'next-translate/useTranslation';
 import setLanguage from 'next-translate/setLanguage';
-
-import { Dialog, DialogTitle, SettingsForm } from '..';
 import { useForm, FormProvider } from 'react-hook-form';
+
+import { useSettings } from '../../hooks';
+import { Dialog, DialogTitle, SettingsForm } from '..';
 
 export const Header = () => {
   const theme = useTheme();
   const { t, lang: currentLanguage } = useTranslation('home');
   const fullScreen = useMediaQuery(theme.breakpoints.down('md'));
   const [open, setOpen] = React.useState(false);
+  const { setSettings, settings } = useSettings();
   const handleClickOpen = React.useCallback(() => {
     setOpen(true);
   }, []);
   const handleClose = React.useCallback(() => {
     setOpen(false);
   }, []);
-
   const methods = useForm();
+
   const onSave = React.useCallback(() => {
-    const { language } = methods.getValues();
+    const { language, currency } = methods.getValues();
     if (language !== currentLanguage) {
       setLanguage(language);
     }
 
     handleClose();
-  }, [currentLanguage, handleClose, methods]);
+    setSettings({ language, currency });
+  }, [setSettings, currentLanguage, handleClose, methods]);
 
   return (
     <AppBar position="static">
@@ -48,7 +51,9 @@ export const Header = () => {
           {t('appTitle')}
         </Typography>
         <Button size="small" color="inherit" onClick={handleClickOpen}>
-          <Typography variant="subtitle2">{t('currentLang')} | SEK</Typography>
+          <Typography variant="subtitle2">
+            {t('currentLang')} | {settings?.currency || 'SEK'}
+          </Typography>
         </Button>
       </Toolbar>
       <Dialog

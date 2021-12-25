@@ -1,25 +1,13 @@
-export type SupportedLang = 'en' | 'sv';
-export type Config = {
-  locale: string;
-  currency: string;
-};
+import { SupportedCurrency, SupportedLang } from '../types';
 
-const langToLocale: Record<SupportedLang, Config> = {
-  en: {
-    locale: 'en-SE',
-    currency: 'SEK',
-  },
-  sv: {
-    locale: 'sv-SE',
-    currency: 'SEK',
-  },
-};
-
-export const formatter = (number: number, lang: SupportedLang = 'en') => {
-  const config = langToLocale[lang];
-  return new Intl.NumberFormat(config.locale, {
+export const formatter = (
+  number: number,
+  lang: SupportedLang = 'en',
+  currency: SupportedCurrency = 'SEK',
+) => {
+  return new Intl.NumberFormat(`${lang}-${currency.substr(0, 2)}`, {
     style: 'currency',
-    currency: config.currency,
+    currency: currency,
     minimumFractionDigits: 0,
   }).format(number);
 };
