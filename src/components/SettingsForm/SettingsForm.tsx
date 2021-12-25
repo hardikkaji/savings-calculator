@@ -18,7 +18,14 @@ export const SettingsForm: React.FC<{ fullScreen: boolean }> = ({ fullScreen }) 
 
   return (
     <>
-      <FormControl sx={{ minWidth: 400 }} fullWidth={fullScreen}>
+      <FormControl
+        sx={{
+          minWidth: {
+            md: 400,
+          },
+        }}
+        fullWidth={fullScreen}
+      >
         <InputLabel id="language">{t('language')}</InputLabel>
         <Select
           labelId="language"
