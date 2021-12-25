@@ -36,7 +36,7 @@ export const Calculator = () => {
           <SliderInput
             fieldName="timePeriod"
             label={t('timePeriod')}
-            endAdornment="Yrs"
+            endAdornment={t('years')}
             min={1}
             max={50}
           />

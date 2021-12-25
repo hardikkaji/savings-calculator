@@ -12,6 +12,9 @@ const currencyOptions = [
   { value: 'SEK', label: 'SEK - kr' },
   { value: 'USD', label: 'USD - $' },
   { value: 'INR', label: 'INR - ₹' },
+  { value: 'EUR', label: 'EUR - €' },
+  { value: 'GBP', label: 'GBP - £' },
+  { value: 'NOK', label: 'NOK - kr' },
 ];
 
 export const SettingsForm: React.FC<{ fullScreen: boolean }> = ({ fullScreen }) => {
