@@ -22,11 +22,7 @@ export const useCalculateGain = () => {
   const months = useMemo(() => timePeriod * NO_OF_MONTHS, [timePeriod]);
 
   const totalReturnsOnStartingAmount = useMemo(
-    () =>
-      Math.round(
-        startingAmount *
-          Math.pow(1 + expectedReturn / 100 / NO_OF_MONTHS, timePeriod * NO_OF_MONTHS),
-      ),
+    () => Math.round(startingAmount * Math.pow(1 + expectedReturn / 100, timePeriod)),
     [expectedReturn, startingAmount, timePeriod],
   );
 
