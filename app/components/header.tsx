@@ -1,4 +1,23 @@
+import { useStore } from "~/useStore";
+import { SettingsDialog } from "./settings-dialog";
+
+const currencySymbols: Record<string, string> = {
+  SEK: "kr",
+  USD: "$",
+  EUR: "€",
+  GBP: "£",
+  NOK: "kr",
+  INR: "₹",
+};
+
+const languageFlags: Record<string, string> = {
+  en: "🇬🇧",
+  sv: "🇸🇪",
+};
+
 export function Header() {
+  const { language, currency } = useStore();
+
   return (
     <nav className="bg-primary fixed w-full z-20 top-0 start-0 border-b border-default shadow-2xs">
       <div className="max-w-7xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -8,6 +27,20 @@ export function Header() {
             Savings Calculator
           </span>
         </a>
+        <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 text-zinc-100">
+            <span className="text-lg">{languageFlags[language]}</span>
+            <span className="text-sm font-medium">
+              {language.toUpperCase()}
+            </span>
+          </div>
+          <div className="flex items-center gap-2 text-zinc-100 border-l border-zinc-400 pl-4">
+            <span className="text-lg">
+              {currencySymbols[currency]} - {currency}
+            </span>
+          </div>
+          <SettingsDialog />
+        </div>
       </div>
     </nav>
   );

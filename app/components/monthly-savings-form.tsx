@@ -1,16 +1,28 @@
 import { useIntl } from "react-intl";
 import { SliderInput } from "./slider-input";
 import { messages } from "./messages";
+import { useStore } from "~/useStore";
+
+const currencySymbols: Record<string, string> = {
+  SEK: "kr",
+  USD: "$",
+  EUR: "€",
+  GBP: "£",
+  NOK: "kr",
+  INR: "₹",
+};
 
 export function MonthlySavingsForm() {
   const intl = useIntl();
+  const { currency } = useStore();
+  const currencySymbol = currencySymbols[currency] || "kr";
 
   return (
     <div className="mx-auto flex flex-col gap-8 w-full">
       <SliderInput
         label={intl.formatMessage(messages.startingAmount)}
         id="starting-amount"
-        prefix={intl.formatMessage(messages.kr)}
+        prefix={currencySymbol}
         min={0}
         max={1000000}
         step={2500}
@@ -20,7 +32,7 @@ export function MonthlySavingsForm() {
       <SliderInput
         label={intl.formatMessage(messages.investmentPerMonth)}
         id="investment-per-month"
-        prefix={intl.formatMessage(messages.kr)}
+        prefix={currencySymbol}
         min={500}
         max={100000}
         step={500}

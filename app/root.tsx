@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   isRouteErrorResponse,
   Links,
@@ -10,8 +11,16 @@ import { IntlProvider } from "react-intl";
 
 import type { Route } from "./+types/root";
 import { Header } from "./components/header";
+import { useStore } from "./useStore";
 import en from "./l10n/en.json";
+import sv from "./l10n/sv.json";
 import "./app.css";
+import type { SupportedLang } from "./types";
+
+const messages: Record<SupportedLang, Record<string, string>> = {
+  en,
+  sv,
+};
 
 export const links: Route.LinksFunction = () => [];
 
@@ -25,8 +34,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <Header />
-        <div className="mt-24 px-8">{children}</div>
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -35,9 +43,26 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  const [language, setLanguage] = useState<SupportedLang>("en");
+  const [currency, setCurrency] = useState("SEK");
+  const { setStoreValue } = useStore();
+
+  useEffect(() => {
+    const savedLang = (localStorage.getItem("language") as SupportedLang) || "en";
+    const savedCurrency = localStorage.getItem("currency") || "SEK";
+
+    setLanguage(savedLang);
+    setCurrency(savedCurrency);
+    setStoreValue("language", savedLang);
+    setStoreValue("currency", savedCurrency);
+  }, [setStoreValue]);
+
   return (
-    <IntlProvider messages={en} locale="en-SE" defaultLocale="en">
-      <Outlet />
+    <IntlProvider messages={messages[language]} locale={`${language}-SE`} defaultLocale="en">
+      <Header />
+      <div className="mt-24 px-8">
+        <Outlet />
+      </div>
     </IntlProvider>
   );
 }

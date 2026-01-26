@@ -1,17 +1,20 @@
 import { TrendingUp } from "lucide-react";
 import { useIntl } from "react-intl";
 import { useCalculateGain } from "~/hooks/useCalculateGain";
+import { useStore } from "~/useStore";
 import { messages } from "./messages";
-
-const options = {
-  style: "currency",
-  currency: "SEK", // TODO: make dynamic
-  minimumFractionDigits: 0,
-} as const;
 
 export function Result() {
   const intl = useIntl();
   const { totalInvestment, wealthGained, totalReturns } = useCalculateGain();
+  const { currency } = useStore();
+
+  const options = {
+    style: "currency" as const,
+    currency: currency,
+    currencyDisplay: "narrowSymbol" as const,
+    minimumFractionDigits: 0,
+  };
 
   return (
     <div className="flex flex-col gap-3 text-md">

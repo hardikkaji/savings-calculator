@@ -65,4 +65,16 @@ export const messages = defineMessages({
     id: "years",
     defaultMessage: "Years",
   },
+  settings: {
+    id: "settings",
+    defaultMessage: "Settings",
+  },
+  save: {
+    id: "save",
+    defaultMessage: "Save",
+  },
+  cancel: {
+    id: "cancel",
+    defaultMessage: "Cancel",
+  },
 });
