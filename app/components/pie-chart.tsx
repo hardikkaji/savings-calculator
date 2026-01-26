@@ -9,6 +9,7 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart";
 import { useCalculateGain } from "~/hooks/useCalculateGain";
+import { formatter } from "~/lib/currency-formatter";
 
 const chartConfig = {
   totalInvestment: {
@@ -65,7 +66,7 @@ export function ChartPieDonutText() {
                       y={viewBox.cy}
                       className="fill-foreground text-3xl font-bold"
                     >
-                      {totalReturns.toLocaleString()} kr
+                      {formatter(totalReturns, "sv", "SEK")}
                     </tspan>
                     <tspan
                       x={viewBox.cx}
