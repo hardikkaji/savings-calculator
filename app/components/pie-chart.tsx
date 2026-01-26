@@ -1,3 +1,4 @@
+import { useIntl } from "react-intl";
 import { Label, Pie, PieChart } from "recharts";
 
 import {
@@ -9,21 +10,27 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart";
 import { useCalculateGain } from "~/hooks/useCalculateGain";
-import { formatter } from "~/lib/currency-formatter";
-
-const chartConfig = {
-  totalInvestment: {
-    label: "Total Investment",
-    color: "var(--color-chrome)",
-  },
-  wealthGained: {
-    label: "Wealth Gained",
-    color: "var(--color-safari)",
-  },
-} satisfies ChartConfig;
+import { useStore } from "~/useStore";
+import { currencySymbols } from "~/lib/currency-symbols";
+import { messages } from "./messages";
 
 export function ChartPieDonutText() {
+  const intl = useIntl();
   const { totalInvestment, totalReturns, wealthGained } = useCalculateGain();
+  const { currency } = useStore();
+  const currencySymbol = currencySymbols[currency] || "kr";
+
+  const chartConfig = {
+    totalInvestment: {
+      label: intl.formatMessage(messages.totalInvestment),
+      color: "var(--color-chrome)",
+    },
+    wealthGained: {
+      label: intl.formatMessage(messages.wealthGained),
+      color: "var(--color-safari)",
+    },
+  } satisfies ChartConfig;
+
   const chartData = [
     {
       label: "totalInvestment",
@@ -36,6 +43,13 @@ export function ChartPieDonutText() {
       fill: "var(--color-safari)",
     },
   ];
+
+  const formattedTotal = new Intl.NumberFormat(`en-SE`, {
+    style: "currency",
+    currency: currency,
+    currencyDisplay: "narrowSymbol",
+    minimumFractionDigits: 0,
+  }).format(totalReturns);
 
   return (
     <ChartContainer config={chartConfig} className="w-full h-100">
@@ -66,14 +80,14 @@ export function ChartPieDonutText() {
                       y={viewBox.cy}
                       className="fill-foreground text-3xl font-bold"
                     >
-                      {formatter(totalReturns, "sv", "SEK")}
+                      {formattedTotal}
                     </tspan>
                     <tspan
                       x={viewBox.cx}
                       y={(viewBox.cy || 0) + 24}
                       className="fill-muted-foreground"
                     >
-                      Total Value
+                      {intl.formatMessage(messages.totalValue)}
                     </tspan>
                   </text>
                 );

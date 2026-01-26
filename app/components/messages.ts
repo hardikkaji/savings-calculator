@@ -77,4 +77,12 @@ export const messages = defineMessages({
     id: "cancel",
     defaultMessage: "Cancel",
   },
+  wealthGained: {
+    id: "wealthGained",
+    defaultMessage: "Wealth Gained",
+  },
+  totalValue: {
+    id: "totalValue",
+    defaultMessage: "Total Value",
+  },
 });

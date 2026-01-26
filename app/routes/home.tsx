@@ -5,8 +5,8 @@ import { Result } from "~/components/result";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "Saving Calculator" },
-    { name: "description", content: "Welcome to savings calculator" },
+    { title: "Montly Savings Calculator" },
+    { name: "description", content: "Welcome to montly savings calculator!" },
   ];
 }
 

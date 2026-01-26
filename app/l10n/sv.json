@@ -20,5 +20,7 @@
   "years": "År",
   "settings": "Inställningar",
   "save": "Spara",
-  "cancel": "Avbryt"
+  "cancel": "Avbryt",
+  "wealthGained": "Förmögenhet vunnen",
+  "totalValue": "Totalt värde"
 }

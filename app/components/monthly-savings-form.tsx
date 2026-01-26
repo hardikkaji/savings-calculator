@@ -2,15 +2,7 @@ import { useIntl } from "react-intl";
 import { SliderInput } from "./slider-input";
 import { messages } from "./messages";
 import { useStore } from "~/useStore";
-
-const currencySymbols: Record<string, string> = {
-  SEK: "kr",
-  USD: "$",
-  EUR: "€",
-  GBP: "£",
-  NOK: "kr",
-  INR: "₹",
-};
+import { currencySymbols } from "~/lib/currency-symbols";
 
 export function MonthlySavingsForm() {
   const intl = useIntl();

@@ -20,5 +20,7 @@
   "years": "Years",
   "settings": "Settings",
   "save": "Save",
-  "cancel": "Cancel"
+  "cancel": "Cancel",
+  "wealthGained": "Wealth Gained",
+  "totalValue": "Total Value"
 }

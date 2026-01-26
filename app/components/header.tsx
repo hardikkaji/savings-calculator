@@ -1,14 +1,6 @@
 import { useStore } from "~/useStore";
+import { currencySymbols } from "~/lib/currency-symbols";
 import { SettingsDialog } from "./settings-dialog";
-
-const currencySymbols: Record<string, string> = {
-  SEK: "kr",
-  USD: "$",
-  EUR: "€",
-  GBP: "£",
-  NOK: "kr",
-  INR: "₹",
-};
 
 const languageFlags: Record<string, string> = {
   en: "🇬🇧",
