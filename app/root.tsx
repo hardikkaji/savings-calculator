@@ -65,7 +65,7 @@ export default function App() {
       defaultLocale="en"
     >
       <Header />
-      <div className="mt-24 px-8">
+      <div className="mt-24 sm:px-8">
         <Outlet />
       </div>
     </IntlProvider>

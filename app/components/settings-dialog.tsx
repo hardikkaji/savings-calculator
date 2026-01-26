@@ -74,13 +74,13 @@ export function SettingsDialog() {
           </AlertDialogTitle>
         </AlertDialogHeader>
         <div className="flex flex-col gap-6">
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-2 w-full">
             <Label>{intl.formatMessage(messages.language)}</Label>
             <Select
               value={language}
               onValueChange={(v) => setLanguage(v as SupportedLang)}
             >
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -99,7 +99,7 @@ export function SettingsDialog() {
               value={currency}
               onValueChange={(v) => setCurrency(v as SupportedCurrency)}
             >
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
