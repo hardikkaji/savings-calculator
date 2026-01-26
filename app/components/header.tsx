@@ -29,13 +29,8 @@ export function Header() {
         </a>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2 text-zinc-100">
-            <span className="text-lg">{languageFlags[language]}</span>
+            <span className="text-lg">{languageFlags[language]} | </span>
             <span className="text-sm font-medium">
-              {language.toUpperCase()}
-            </span>
-          </div>
-          <div className="flex items-center gap-2 text-zinc-100 border-l border-zinc-400 pl-4">
-            <span className="text-lg">
               {currencySymbols[currency]} - {currency}
             </span>
           </div>
