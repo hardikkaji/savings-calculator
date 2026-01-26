@@ -35,7 +35,7 @@ export function ChartPieDonutText() {
   ];
 
   return (
-    <ChartContainer config={chartConfig} className="w-full p-0">
+    <ChartContainer config={chartConfig} className="w-full h-100">
       <PieChart>
         <ChartTooltip
           cursor={false}

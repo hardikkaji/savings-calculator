@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <div className="p-4">
       <h1 className="text-lg font-semibold mb-2">Monthly Savings Calculator</h1>
-      <div className="flex flex-col gap-8 mb-6 md:flex-row lg:items-center">
+      <div className="flex flex-col gap-8 mb-6 lg:flex-row lg:items-center">
         <MonthlySavingsForm />
         <ChartPieDonutText />
       </div>

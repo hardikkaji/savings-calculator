@@ -2,7 +2,7 @@ import { SliderInput } from "./slider-input";
 
 export function MonthlySavingsForm() {
   return (
-    <div className="mx-auto flex flex-col gap-8 md:w-3xl sm:w-full">
+    <div className="mx-auto flex flex-col gap-8 w-full">
       <SliderInput
         label="Starting amount"
         id="starting-amount"
