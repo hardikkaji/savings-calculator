@@ -24,7 +24,7 @@ export function Header() {
         <a href="#" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="./logo.png" className="h-10" alt="Savings Calculator" />
           <span className="self-center text-xl text-heading font-semibold whitespace-nowrap text-zinc-100">
-            Savings Calculator
+            Calculators
           </span>
         </a>
         <div className="flex items-center gap-4">
