@@ -48,7 +48,8 @@ export default function App() {
   const { setStoreValue } = useStore();
 
   useEffect(() => {
-    const savedLang = (localStorage.getItem("language") as SupportedLang) || "en";
+    const savedLang =
+      (localStorage.getItem("language") as SupportedLang) || "en";
     const savedCurrency = localStorage.getItem("currency") || "SEK";
 
     setLanguage(savedLang);
@@ -58,7 +59,11 @@ export default function App() {
   }, [setStoreValue]);
 
   return (
-    <IntlProvider messages={messages[language]} locale={`${language}-SE`} defaultLocale="en">
+    <IntlProvider
+      messages={messages[language]}
+      locale={`${language}-SE`}
+      defaultLocale="en"
+    >
       <Header />
       <div className="mt-24 px-8">
         <Outlet />
