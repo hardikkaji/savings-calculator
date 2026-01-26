@@ -9,8 +9,9 @@ type Store = {
 
 export type StoreKey = keyof Store;
 
+type SetStoreKeys = (key: StoreKey | "locale", value: number) => void;
 type State = Store & {
-  setStoreValue: (key: StoreKey, value: number) => void;
+  setStoreValue: SetStoreKeys;
 };
 
 export const useStore = create<State>((set) => ({
@@ -18,8 +19,8 @@ export const useStore = create<State>((set) => ({
   expectedReturn: 12,
   timePeriod: 15,
   locale: "sv-SE",
-  startingAmount: 100000,
-  setStoreValue: (key: StoreKey, value: number) => {
+  startingAmount: 10000,
+  setStoreValue: (key, value) => {
     set((state) => ({ ...state, [key]: value }));
   },
 }));

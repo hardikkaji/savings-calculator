@@ -2,6 +2,8 @@ import { Label, Pie, PieChart } from "recharts";
 
 import {
   ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
@@ -78,6 +80,10 @@ export function ChartPieDonutText() {
             }}
           />
         </Pie>
+        <ChartLegend
+          content={<ChartLegendContent nameKey="label" />}
+          className="-translate-y-2 flex-wrap gap-2 *:basis-1/4 *:justify-center"
+        />
       </PieChart>
     </ChartContainer>
   );
