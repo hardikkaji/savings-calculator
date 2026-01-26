@@ -6,10 +6,12 @@ import {
   Scripts,
   ScrollRestoration,
 } from "react-router";
+import { IntlProvider } from "react-intl";
 
 import type { Route } from "./+types/root";
-import "./app.css";
 import { Header } from "./components/header";
+import en from "./l10n/en.json";
+import "./app.css";
 
 export const links: Route.LinksFunction = () => [];
 
@@ -33,7 +35,11 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <IntlProvider messages={en} locale="en-SE" defaultLocale="en">
+      <Outlet />
+    </IntlProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {

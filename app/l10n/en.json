@@ -1,0 +1,21 @@
+{
+  "totalInvestment": "Total Investment",
+  "totalWealthGained": "Total Wealth Gained",
+  "totalReturns": "Total Returns",
+  "savingsCalculator": "Savings Calculator",
+  "monthlyInvestment": "Monthly Investment",
+  "annualReturnRate": "Annual Return Rate (%)",
+  "investmentDuration": "Investment Duration (years)",
+  "calculate": "Calculate",
+  "language": "Language",
+  "currency": "Currency",
+  "startingAmount": "Starting amount",
+  "investmentPerMonth": "Investment per month",
+  "expectedAnnualReturn": "Expected annual return (%)",
+  "timePeriod": "Time period",
+  "enterAmount": "Enter amount",
+  "enterPercentage": "Enter percentage",
+  "kr": "kr",
+  "percent": "%",
+  "years": "Years"
+}
