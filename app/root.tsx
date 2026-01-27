@@ -45,7 +45,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   const [language, setLanguage] = useState<SupportedLang>("en");
   const [_, setCurrency] = useState("SEK");
-  const { setStoreValue } = useStore();
+  const setStoreValue = useStore((state) => state.setStoreValue);
 
   useEffect(() => {
     const savedLang =
