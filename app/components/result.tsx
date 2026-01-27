@@ -7,7 +7,7 @@ import { messages } from "./messages";
 export function Result() {
   const intl = useIntl();
   const { totalInvestment, wealthGained, totalReturns } = useCalculateGain();
-  const { currency } = useStore();
+  const currency = useStore((state) => state.currency);
 
   const options = {
     style: "currency" as const,

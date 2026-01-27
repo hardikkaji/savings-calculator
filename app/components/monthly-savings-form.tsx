@@ -3,10 +3,11 @@ import { SliderInput } from "./slider-input";
 import { messages } from "./messages";
 import { useStore } from "~/useStore";
 import { currencySymbols } from "~/lib/currency-symbols";
+import { useCallback } from "react";
 
 export function MonthlySavingsForm() {
   const intl = useIntl();
-  const { currency } = useStore();
+  const currency = useStore((state) => state.currency);
   const currencySymbol = currencySymbols[currency] || "kr";
 
   return (

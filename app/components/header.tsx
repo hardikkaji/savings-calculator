@@ -8,7 +8,8 @@ const languageFlags: Record<string, string> = {
 };
 
 export function Header() {
-  const { language, currency } = useStore();
+  const currency = useStore((state) => state.currency);
+  const language = useStore((state) => state.language);
 
   return (
     <nav className="bg-primary fixed w-full z-20 top-0 start-0 border-b border-default shadow-2xs">

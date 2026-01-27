@@ -70,7 +70,7 @@ export function SliderInput({
         </span>
       </div>
       <Slider
-        value={[value]}
+        value={[value as number]}
         onValueChange={onSliderChange}
         min={min}
         max={max}

@@ -17,8 +17,7 @@ import { messages } from "./messages";
 export function ChartPieDonutText() {
   const intl = useIntl();
   const { totalInvestment, totalReturns, wealthGained } = useCalculateGain();
-  const { currency } = useStore();
-  const currencySymbol = currencySymbols[currency] || "kr";
+  const currency = useStore((state) => state.currency);
 
   const chartConfig = {
     totalInvestment: {
