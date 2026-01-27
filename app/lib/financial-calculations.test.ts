@@ -2,8 +2,8 @@ import { describe, it, expect } from "vitest";
 import {
   calculateFinancialMetrics,
   calculateMonthlyBreakdown,
-  FinancialMetrics,
-  MonthlyMetrics,
+  type FinancialMetrics,
+  type MonthlyMetrics,
 } from "./financial-calculations";
 
 describe("financial-calculations utility", () => {
