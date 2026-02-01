@@ -10,14 +10,13 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart";
 import { useCalculateGain } from "~/hooks/useCalculateGain";
-import { useStore } from "~/useStore";
-import { currencySymbols } from "~/lib/currency-symbols";
+import { useCurrencyFormatter } from "~/hooks/useCurrencyFormatter";
 import { messages } from "./messages";
 
 export function ChartPieDonutText() {
   const intl = useIntl();
   const { totalInvestment, totalReturns, wealthGained } = useCalculateGain();
-  const currency = useStore((state) => state.currency);
+  const { format } = useCurrencyFormatter();
 
   const chartConfig = {
     totalInvestment: {
@@ -43,12 +42,7 @@ export function ChartPieDonutText() {
     },
   ];
 
-  const formattedTotal = new Intl.NumberFormat(`en-SE`, {
-    style: "currency",
-    currency: currency,
-    currencyDisplay: "narrowSymbol",
-    minimumFractionDigits: 0,
-  }).format(totalReturns);
+  const formattedTotal = format(totalReturns);
 
   return (
     <ChartContainer config={chartConfig} className="w-full h-100">

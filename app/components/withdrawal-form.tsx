@@ -3,6 +3,7 @@ import { SliderInput } from "./slider-input";
 import { messages } from "./messages";
 import { useStore } from "~/useStore";
 import { currencySymbols } from "~/lib/currency-symbols";
+import { WITHDRAWAL_CONFIG } from "~/app-config";
 
 export function WithdrawalForm() {
   const intl = useIntl();
@@ -15,9 +16,9 @@ export function WithdrawalForm() {
         label={intl.formatMessage(messages.totalInvestment)}
         id="withdrawal-total-investment"
         prefix={currencySymbol}
-        min={0}
-        max={50000000}
-        step={10000}
+        min={WITHDRAWAL_CONFIG.totalInvestment.min}
+        max={WITHDRAWAL_CONFIG.totalInvestment.max}
+        step={WITHDRAWAL_CONFIG.totalInvestment.step}
         placeholder={intl.formatMessage(messages.enterAmount)}
         name="withdrawalTotalInvestment"
       />
@@ -25,9 +26,9 @@ export function WithdrawalForm() {
         label={intl.formatMessage(messages.withdrawalPerMonth)}
         id="withdrawal-per-month"
         prefix={currencySymbol}
-        min={500}
-        max={100000}
-        step={500}
+        min={WITHDRAWAL_CONFIG.withdrawalPerMonth.min}
+        max={WITHDRAWAL_CONFIG.withdrawalPerMonth.max}
+        step={WITHDRAWAL_CONFIG.withdrawalPerMonth.step}
         placeholder={intl.formatMessage(messages.enterAmount)}
         name="withdrawalPerMonth"
       />
@@ -35,9 +36,9 @@ export function WithdrawalForm() {
         label={intl.formatMessage(messages.withdrawalExpectedReturnRate)}
         id="expected-return-rate"
         prefix={intl.formatMessage(messages.percent)}
-        min={0}
-        max={100}
-        step={1}
+        min={WITHDRAWAL_CONFIG.expectedReturnRate.min}
+        max={WITHDRAWAL_CONFIG.expectedReturnRate.max}
+        step={WITHDRAWAL_CONFIG.expectedReturnRate.step}
         placeholder={intl.formatMessage(messages.enterPercentage)}
         name="expectedReturnRate"
       />
@@ -45,9 +46,9 @@ export function WithdrawalForm() {
         label={intl.formatMessage(messages.timePeriodYears)}
         id="time-period-years"
         prefix={intl.formatMessage(messages.years)}
-        min={1}
-        max={50}
-        step={1}
+        min={WITHDRAWAL_CONFIG.timePeriod.min}
+        max={WITHDRAWAL_CONFIG.timePeriod.max}
+        step={WITHDRAWAL_CONFIG.timePeriod.step}
         placeholder={intl.formatMessage(messages.enterPercentage)}
         name="timePeriodYears"
       />

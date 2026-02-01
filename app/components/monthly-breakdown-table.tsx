@@ -2,6 +2,7 @@ import { useIntl } from "react-intl";
 import { useShallow } from "zustand/shallow";
 import { useStore } from "~/useStore";
 import { useMonthlyBreakdown } from "~/hooks/useMonthlyBreakdown";
+import { useCurrencyFormatter } from "~/hooks/useCurrencyFormatter";
 import {
   Table,
   TableBody,
@@ -15,22 +16,8 @@ import { messages } from "./messages";
 
 export function MonthlyBreakdownTable() {
   const intl = useIntl();
-  const currency = useStore(
-    useShallow((state) => ({
-      currency: state.currency,
-    })),
-  ).currency;
-
   const { monthlyData, totals } = useMonthlyBreakdown();
-
-  const formatCurrency = (value: number) => {
-    return new Intl.NumberFormat(`en-SE`, {
-      style: "currency",
-      currency: currency,
-      currencyDisplay: "narrowSymbol",
-      minimumFractionDigits: 0,
-    }).format(value);
-  };
+  const { format } = useCurrencyFormatter();
 
   return (
     <div className="w-full">
@@ -51,16 +38,16 @@ export function MonthlyBreakdownTable() {
               <TableRow key={row.month}>
                 <TableCell className="font-medium">{row.month}</TableCell>
                 <TableCell className="text-right">
-                  {formatCurrency(row.startingBalance)}
+                  {format(row.startingBalance)}
                 </TableCell>
                 <TableCell className="text-right">
-                  {formatCurrency(row.investment)}
+                  {format(row.investment)}
                 </TableCell>
                 <TableCell className="text-right text-green-600 font-medium">
-                  {formatCurrency(row.returns)}
+                  {format(row.returns)}
                 </TableCell>
                 <TableCell className="text-right font-semibold">
-                  {formatCurrency(row.endingBalance)}
+                  {format(row.endingBalance)}
                 </TableCell>
               </TableRow>
             ))}
@@ -72,13 +59,13 @@ export function MonthlyBreakdownTable() {
               </TableCell>
               <TableCell className="text-right">—</TableCell>
               <TableCell className="text-right font-semibold">
-                {formatCurrency(totals.totalInvestment)}
+                {format(totals.totalInvestment)}
               </TableCell>
               <TableCell className="text-right font-semibold text-green-600">
-                {formatCurrency(totals.totalReturns)}
+                {format(totals.totalReturns)}
               </TableCell>
               <TableCell className="text-right font-bold">
-                {formatCurrency(totals.finalBalance)}
+                {format(totals.finalBalance)}
               </TableCell>
             </TableRow>
           </TableFooter>

@@ -3,12 +3,8 @@ import { Menu } from "lucide-react";
 import { NavLink } from "react-router";
 import { useStore } from "~/useStore";
 import { currencySymbols } from "~/lib/currency-symbols";
+import { languageFlags } from "~/lib/language-flags";
 import { SettingsDialog } from "./settings-dialog";
-
-const languageFlags: Record<string, string> = {
-  en: "🇬🇧",
-  sv: "🇸🇪",
-};
 
 export function Header() {
   const currency = useStore((state) => state.currency);
@@ -73,7 +69,7 @@ export function Header() {
         <div className="flex items-center gap-2 sm:gap-4 ml-auto">
           {/* Language and Currency - always visible */}
           <div className="flex items-center gap-2 text-zinc-100">
-            <span className="text-lg">{languageFlags[language]} | </span>
+            <span className="text-lg">{languageFlags[language].flag} | </span>
             <span className="text-sm font-medium">
               {currencySymbols[currency]} - {currency}
             </span>

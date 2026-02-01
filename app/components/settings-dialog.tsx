@@ -19,11 +19,12 @@ import {
   SelectValue,
 } from "~/components/ui/select";
 import { messages } from "./messages";
+import { languageFlags } from "~/lib/language-flags";
 import type { SupportedLang, SupportedCurrency } from "~/types";
 
 const SUPPORTED_LANGUAGES: { label: string; value: SupportedLang }[] = [
-  { label: "English", value: "en" },
-  { label: "Swedish", value: "sv" },
+  { label: `${languageFlags.en.flag} ${languageFlags.en.label}`, value: "en" },
+  { label: `${languageFlags.sv.flag} ${languageFlags.sv.label}`, value: "sv" },
 ];
 
 const SUPPORTED_CURRENCIES: { label: string; value: SupportedCurrency }[] = [

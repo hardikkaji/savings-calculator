@@ -4,6 +4,7 @@ import { messages } from "./messages";
 import { useStore } from "~/useStore";
 import { currencySymbols } from "~/lib/currency-symbols";
 import { useCallback } from "react";
+import { SAVINGS_CONFIG } from "~/app-config";
 
 export function MonthlySavingsForm() {
   const intl = useIntl();
@@ -16,9 +17,9 @@ export function MonthlySavingsForm() {
         label={intl.formatMessage(messages.startingAmount)}
         id="starting-amount"
         prefix={currencySymbol}
-        min={0}
-        max={1000000}
-        step={2500}
+        min={SAVINGS_CONFIG.startingAmount.min}
+        max={SAVINGS_CONFIG.startingAmount.max}
+        step={SAVINGS_CONFIG.startingAmount.step}
         placeholder={intl.formatMessage(messages.enterAmount)}
         name="startingAmount"
       />
@@ -26,9 +27,9 @@ export function MonthlySavingsForm() {
         label={intl.formatMessage(messages.investmentPerMonth)}
         id="investment-per-month"
         prefix={currencySymbol}
-        min={500}
-        max={100000}
-        step={500}
+        min={SAVINGS_CONFIG.investmentPerMonth.min}
+        max={SAVINGS_CONFIG.investmentPerMonth.max}
+        step={SAVINGS_CONFIG.investmentPerMonth.step}
         placeholder={intl.formatMessage(messages.enterAmount)}
         name="investedAmount"
       />
@@ -36,9 +37,9 @@ export function MonthlySavingsForm() {
         label={intl.formatMessage(messages.expectedAnnualReturn)}
         id="expected-annual-return"
         prefix={intl.formatMessage(messages.percent)}
-        min={0}
-        max={100}
-        step={1}
+        min={SAVINGS_CONFIG.expectedAnnualReturn.min}
+        max={SAVINGS_CONFIG.expectedAnnualReturn.max}
+        step={SAVINGS_CONFIG.expectedAnnualReturn.step}
         placeholder={intl.formatMessage(messages.enterPercentage)}
         name="expectedReturn"
       />
@@ -46,9 +47,9 @@ export function MonthlySavingsForm() {
         label={intl.formatMessage(messages.timePeriod)}
         id="time-period"
         prefix={intl.formatMessage(messages.years)}
-        min={1}
-        max={50}
-        step={1}
+        min={SAVINGS_CONFIG.timePeriod.min}
+        max={SAVINGS_CONFIG.timePeriod.max}
+        step={SAVINGS_CONFIG.timePeriod.step}
         placeholder={intl.formatMessage(messages.enterPercentage)}
         name="timePeriod"
       />
