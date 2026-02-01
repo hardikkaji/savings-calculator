@@ -24,6 +24,9 @@
   "wealthGained": "Wealth Gained",
   "totalValue": "Total Value",
   "faq.title": "FAQ",
+  "faq.section.savings": "Savings",
+  "faq.section.withdrawal": "Withdrawal",
+  "faq.section.general": "General",
   "faq.q1.question": "How are savings calculated?",
   "faq.q1.answer": "We use compound interest. Each month we add your monthly contribution to the current balance, then apply a monthly rate derived from the annual expected return. The final balance is the sum of the growth on the starting amount and all monthly contributions.",
   "faq.q2.question": "What does Expected Return mean?",
@@ -34,5 +37,11 @@
   "faq.q4.answer": "Not yet. The current version assumes a fixed monthly contribution. We plan to add variable contributions in a future update.",
   "faq.q5.question": "Why do the monthly totals look slightly different from the final total?",
   "faq.q5.answer": "Monthly rows are rounded for display. The final total uses the full compound formula, so small rounding differences can appear.",
+  "faq.q6.question": "How is the final value calculated for withdrawals?",
+  "faq.q6.answer": "Each month we subtract the withdrawal amount first, then apply the monthly interest rate on the remaining balance. The ending balance after all months is the final value.",
+  "faq.q7.question": "What happens if my balance runs out before the end?",
+  "faq.q7.answer": "Withdrawals are capped at the remaining balance, so the account will not go negative. Once the balance reaches zero, the final value stays at zero.",
+  "faq.q8.question": "How is total withdrawal calculated?",
+  "faq.q8.answer": "Total withdrawal is the sum of all monthly withdrawals actually taken over the time period. If the balance is depleted, the remaining months contribute zero.",
   "faq.footer": "Have more questions? We'll keep expanding this list as the calculator grows."
 }
