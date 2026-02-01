@@ -1,5 +1,3 @@
-import { useStore } from "~/useStore";
-import { currencySymbols } from "~/lib/currency-symbols";
 import { Card } from "./ui/card";
 import {
   Table,
@@ -10,24 +8,12 @@ import {
   TableRow,
   TableFooter,
 } from "./ui/table";
-
 import { useWithdrawalBreakdown } from "~/hooks/useWithdrawalBreakdown";
+import { useCurrencyFormatter } from "~/hooks/useCurrencyFormatter";
 
 export function WithdrawalBreakdownTable() {
-  const currency = useStore((state) => state.currency);
-  const language = useStore((state) => state.language);
   const { monthlyData } = useWithdrawalBreakdown();
-
-  const formatter = new Intl.NumberFormat(
-    language === "sv" ? "sv-SE" : "en-US",
-    {
-      style: "currency",
-      currency: currency,
-      currencyDisplay: "narrowSymbol",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    },
-  );
+  const { format } = useCurrencyFormatter();
 
   const totalWithdrawal = monthlyData.reduce(
     (sum, row) => sum + row.withdrawal,
@@ -52,13 +38,13 @@ export function WithdrawalBreakdownTable() {
               <TableRow key={index}>
                 <TableCell className="text-center">{row.month}</TableCell>
                 <TableCell className="text-right">
-                  {formatter.format(row.balance)}
+                  {format(row.balance)}
                 </TableCell>
                 <TableCell className="text-right text-orange-600">
-                  {formatter.format(row.withdrawal)}
+                  {format(row.withdrawal)}
                 </TableCell>
                 <TableCell className="text-right text-green-600">
-                  {formatter.format(row.interest)}
+                  {format(row.interest)}
                 </TableCell>
               </TableRow>
             ))}
@@ -68,10 +54,10 @@ export function WithdrawalBreakdownTable() {
               <TableCell className="text-center font-semibold">Total</TableCell>
               <TableCell className="text-right"></TableCell>
               <TableCell className="text-right font-semibold text-orange-600">
-                {formatter.format(totalWithdrawal)}
+                {format(totalWithdrawal)}
               </TableCell>
               <TableCell className="text-right font-semibold text-green-600">
-                {formatter.format(totalInterest)}
+                {format(totalInterest)}
               </TableCell>
             </TableRow>
           </TableFooter>

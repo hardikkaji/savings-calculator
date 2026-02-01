@@ -16,8 +16,8 @@ export function WithdrawalForm() {
         id="withdrawal-total-investment"
         prefix={currencySymbol}
         min={0}
-        max={1000000}
-        step={2500}
+        max={50000000}
+        step={10000}
         placeholder={intl.formatMessage(messages.enterAmount)}
         name="withdrawalTotalInvestment"
       />

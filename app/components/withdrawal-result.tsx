@@ -1,25 +1,12 @@
-import { useStore } from "~/useStore";
-import { currencySymbols } from "~/lib/currency-symbols";
+import { useIntl } from "react-intl";
 import { Card } from "./ui/card";
 import { useCalculateWithdrawal } from "~/hooks/useCalculateWithdrawal";
+import { useCurrencyFormatter } from "~/hooks/useCurrencyFormatter";
 
 export function WithdrawalResult() {
-  const currency = useStore((state) => state.currency);
-  const language = useStore((state) => state.language);
-
+  const intl = useIntl();
   const metrics = useCalculateWithdrawal();
-  const currencySymbol = currencySymbols[currency] || "kr";
-
-  const formatter = new Intl.NumberFormat(
-    language === "sv" ? "sv-SE" : "en-US",
-    {
-      style: "currency",
-      currency: currency,
-      currencyDisplay: "narrowSymbol",
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
-    },
-  );
+  const { format } = useCurrencyFormatter();
 
   return (
     <div className="w-full">
@@ -30,7 +17,7 @@ export function WithdrawalResult() {
               Total Investment
             </p>
             <p className="text-2xl font-bold text-zinc-900 dark:text-white">
-              {formatter.format(metrics.totalInvestment)}
+              {format(metrics.totalInvestment)}
             </p>
           </div>
           <div className="text-center">
@@ -38,7 +25,7 @@ export function WithdrawalResult() {
               Total Withdrawal
             </p>
             <p className="text-2xl font-bold text-orange-600">
-              {formatter.format(metrics.totalWithdrawal)}
+              {format(metrics.totalWithdrawal)}
             </p>
           </div>
           <div className="text-center">
@@ -50,7 +37,7 @@ export function WithdrawalResult() {
                 metrics.finalValue > 0 ? "text-green-600" : "text-red-600"
               }`}
             >
-              {formatter.format(metrics.finalValue)}
+              {format(metrics.finalValue)}
             </p>
           </div>
         </div>
