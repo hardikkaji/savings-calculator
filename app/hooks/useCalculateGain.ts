@@ -31,7 +31,7 @@ export const useCalculateGain = () => {
   );
 
   return {
-    totalReturns: metrics.totalReturns,
+    totalValue: metrics.totalReturns,
     totalInvestment: metrics.totalInvestment,
     wealthGained,
   };

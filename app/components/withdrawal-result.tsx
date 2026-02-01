@@ -1,4 +1,5 @@
 import { useIntl } from "react-intl";
+import { Wallet, Download, Target } from "lucide-react";
 import { Card } from "./ui/card";
 import { useCalculateWithdrawal } from "~/hooks/useCalculateWithdrawal";
 import { useCurrencyFormatter } from "~/hooks/useCurrencyFormatter";
@@ -14,6 +15,9 @@ export function WithdrawalResult() {
       <Card className="p-8">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center">
+            <div className="flex justify-center mb-3">
+              <Wallet className="h-8 w-8 text-zinc-600" />
+            </div>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
               {intl.formatMessage(messages.totalInvestment)}
             </p>
@@ -22,6 +26,9 @@ export function WithdrawalResult() {
             </p>
           </div>
           <div className="text-center">
+            <div className="flex justify-center mb-3">
+              <Download className="h-8 w-8 text-orange-600" />
+            </div>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
               {intl.formatMessage(messages.totalWithdrawal)}
             </p>
@@ -30,6 +37,9 @@ export function WithdrawalResult() {
             </p>
           </div>
           <div className="text-center">
+            <div className="flex justify-center mb-3">
+              <Target className="h-8 w-8 text-green-600" />
+            </div>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
               {intl.formatMessage(messages.withdrawalFinalValue)}
             </p>

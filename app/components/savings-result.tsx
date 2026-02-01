@@ -5,7 +5,7 @@ import { useCalculateGain } from "~/hooks/useCalculateGain";
 import { useCurrencyFormatter } from "~/hooks/useCurrencyFormatter";
 import { messages } from "./messages";
 
-export function Result() {
+export function SavingsResult() {
   const intl = useIntl();
   const { totalInvestment, wealthGained, totalValue } = useCalculateGain();
   const { format } = useCurrencyFormatter();

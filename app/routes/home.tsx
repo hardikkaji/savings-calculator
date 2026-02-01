@@ -1,7 +1,7 @@
 import type { Route } from "./+types/home";
 import { MonthlySavingsForm } from "~/components/monthly-savings-form";
 import { ChartPieDonutText } from "~/components/pie-chart";
-import { Result } from "~/components/result";
+import { SavingsResult } from "~/components/savings-result";
 import { MonthlyBreakdownTable } from "~/components/monthly-breakdown-table";
 
 export function meta({}: Route.MetaArgs) {
@@ -20,7 +20,7 @@ export default function Home() {
         <ChartPieDonutText />
       </div>
       <div className="flex justify-center mb-8">
-        <Result />
+        <SavingsResult />
       </div>
       <div className="w-full">
         <MonthlyBreakdownTable />

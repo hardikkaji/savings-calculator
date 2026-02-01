@@ -15,7 +15,7 @@ import { messages } from "./messages";
 
 export function ChartPieDonutText() {
   const intl = useIntl();
-  const { totalInvestment, totalReturns, wealthGained } = useCalculateGain();
+  const { totalInvestment, totalValue, wealthGained } = useCalculateGain();
   const { format } = useCurrencyFormatter();
 
   const chartConfig = {
@@ -41,8 +41,6 @@ export function ChartPieDonutText() {
       fill: "var(--color-safari)",
     },
   ];
-
-  const formattedTotal = format(totalReturns);
 
   return (
     <ChartContainer config={chartConfig} className="w-full h-100">
@@ -73,7 +71,7 @@ export function ChartPieDonutText() {
                       y={viewBox.cy}
                       className="fill-foreground text-3xl font-bold"
                     >
-                      {formattedTotal}
+                      {format(totalValue)}
                     </tspan>
                     <tspan
                       x={viewBox.cx}
