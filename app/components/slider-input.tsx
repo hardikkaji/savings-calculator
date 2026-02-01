@@ -8,6 +8,12 @@ import {
 import { Field, FieldLabel } from "@/components/ui/field";
 import { useStore, type StoreKey } from "~/useStore";
 
+type WithdrawalFieldKey =
+  | "withdrawalTotalInvestment"
+  | "withdrawalPerMonth"
+  | "expectedReturnRate"
+  | "timePeriodYears";
+
 type SliderInputProps = {
   label: string | React.ReactNode;
   id: string;
@@ -16,7 +22,7 @@ type SliderInputProps = {
   max: number;
   step: number;
   placeholder: string;
-  name: StoreKey;
+  name: StoreKey | WithdrawalFieldKey;
 };
 
 export function SliderInput({
@@ -30,7 +36,22 @@ export function SliderInput({
   name,
 }: SliderInputProps) {
   const setStoreValue = useStore((state) => state.setStoreValue);
-  const fieldValue = useStore((state) => state[name]);
+  const setWithdrawalValue = useStore((state) => state.setWithdrawalValue);
+
+  const isWithdrawalField = (
+    key: StoreKey | WithdrawalFieldKey,
+  ): key is WithdrawalFieldKey => {
+    return [
+      "withdrawalTotalInvestment",
+      "withdrawalPerMonth",
+      "expectedReturnRate",
+      "timePeriodYears",
+    ].includes(key);
+  };
+
+  const fieldValue = isWithdrawalField(name)
+    ? useStore((state) => state[name as WithdrawalFieldKey])
+    : useStore((state) => state[name as StoreKey]);
 
   const [value, setValue] = useState(fieldValue);
 
@@ -38,17 +59,25 @@ export function SliderInput({
     (event: React.ChangeEvent<HTMLInputElement>) => {
       const newValue = Number(event.target.value);
       setValue(newValue);
-      setStoreValue(name, newValue);
+      if (isWithdrawalField(name)) {
+        setWithdrawalValue(name, newValue);
+      } else {
+        setStoreValue(name as StoreKey, newValue);
+      }
     },
-    [name, setStoreValue],
+    [name, setStoreValue, setWithdrawalValue],
   );
 
   const onSliderChange = useCallback(
     (newValue: number[]) => {
       setValue(newValue[0]);
-      setStoreValue(name, newValue[0]);
+      if (isWithdrawalField(name)) {
+        setWithdrawalValue(name, newValue[0]);
+      } else {
+        setStoreValue(name as StoreKey, newValue[0]);
+      }
     },
-    [name, setStoreValue],
+    [name, setStoreValue, setWithdrawalValue],
   );
 
   return (
