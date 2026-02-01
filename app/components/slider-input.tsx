@@ -6,13 +6,19 @@ import {
   InputGroupInput,
 } from "@/components/ui/input-group";
 import { Field, FieldLabel } from "@/components/ui/field";
-import { useStore, type StoreKey } from "~/useStore";
+import { useStore } from "~/useStore";
 
 type WithdrawalFieldKey =
   | "withdrawalTotalInvestment"
   | "withdrawalPerMonth"
   | "expectedReturnRate"
   | "timePeriodYears";
+
+type MonthlySavingsFieldKey =
+  | "investedAmount"
+  | "timePeriod"
+  | "expectedReturn"
+  | "startingAmount";
 
 type SliderInputProps = {
   label: string | React.ReactNode;
@@ -22,7 +28,7 @@ type SliderInputProps = {
   max: number;
   step: number;
   placeholder: string;
-  name: StoreKey | WithdrawalFieldKey;
+  name: WithdrawalFieldKey | MonthlySavingsFieldKey;
 };
 
 export function SliderInput({
@@ -35,11 +41,13 @@ export function SliderInput({
   placeholder,
   name,
 }: SliderInputProps) {
-  const setStoreValue = useStore((state) => state.setStoreValue);
+  const setMonthlySavingsValue = useStore(
+    (state) => state.setMonthlySavingsValue,
+  );
   const setWithdrawalValue = useStore((state) => state.setWithdrawalValue);
 
   const isWithdrawalField = (
-    key: StoreKey | WithdrawalFieldKey,
+    key: WithdrawalFieldKey | MonthlySavingsFieldKey,
   ): key is WithdrawalFieldKey => {
     return [
       "withdrawalTotalInvestment",
@@ -51,7 +59,7 @@ export function SliderInput({
 
   const fieldValue = isWithdrawalField(name)
     ? useStore((state) => state[name as WithdrawalFieldKey])
-    : useStore((state) => state[name as StoreKey]);
+    : useStore((state) => state[name as MonthlySavingsFieldKey]);
 
   const [value, setValue] = useState(fieldValue);
 
@@ -60,24 +68,24 @@ export function SliderInput({
       const newValue = Number(event.target.value);
       setValue(newValue);
       if (isWithdrawalField(name)) {
-        setWithdrawalValue(name, newValue);
+        setWithdrawalValue(name as WithdrawalFieldKey, newValue);
       } else {
-        setStoreValue(name as StoreKey, newValue);
+        setMonthlySavingsValue(name as MonthlySavingsFieldKey, newValue);
       }
     },
-    [name, setStoreValue, setWithdrawalValue],
+    [name, setMonthlySavingsValue, setWithdrawalValue],
   );
 
   const onSliderChange = useCallback(
     (newValue: number[]) => {
       setValue(newValue[0]);
       if (isWithdrawalField(name)) {
-        setWithdrawalValue(name, newValue[0]);
+        setWithdrawalValue(name as WithdrawalFieldKey, newValue[0]);
       } else {
-        setStoreValue(name as StoreKey, newValue[0]);
+        setMonthlySavingsValue(name as MonthlySavingsFieldKey, newValue[0]);
       }
     },
-    [name, setStoreValue, setWithdrawalValue],
+    [name, setMonthlySavingsValue, setWithdrawalValue],
   );
 
   return (

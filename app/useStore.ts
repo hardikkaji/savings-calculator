@@ -1,60 +1,74 @@
 import { create } from "zustand";
 import type { SupportedCurrency, SupportedLang } from "~/types";
 
-type WithdrawalState = {
-  withdrawalTotalInvestment: number;
-  withdrawalPerMonth: number;
-  expectedReturnRate: number;
-  timePeriodYears: number;
+// ============================================================
+// SETTINGS SLICE
+// ============================================================
+export type SettingsSlice = {
+  language: SupportedLang;
+  currency: SupportedCurrency;
+  setLanguage: (language: SupportedLang) => void;
+  setCurrency: (currency: SupportedCurrency) => void;
 };
 
-type Store = {
+// ============================================================
+// MONTHLY SAVINGS SLICE
+// ============================================================
+export type MonthlySavingsSlice = {
   investedAmount: number;
   timePeriod: number;
   expectedReturn: number;
   startingAmount: number;
-  language: SupportedLang;
-  currency: SupportedCurrency;
+  setMonthlySavingsValue: (
+    key: keyof Omit<MonthlySavingsSlice, "setMonthlySavingsValue">,
+    value: number,
+  ) => void;
+};
+
+// ============================================================
+// WITHDRAWAL SLICE
+// ============================================================
+export type WithdrawalSlice = {
   withdrawalTotalInvestment: number;
   withdrawalPerMonth: number;
   expectedReturnRate: number;
   timePeriodYears: number;
-  withdrawal: WithdrawalState;
+  setWithdrawalValue: (
+    key: keyof Omit<WithdrawalSlice, "setWithdrawalValue">,
+    value: number,
+  ) => void;
 };
 
-export type StoreKey = keyof Omit<Store, "withdrawal">;
+// ============================================================
+// COMBINED STORE TYPE
+// ============================================================
+type State = SettingsSlice & MonthlySavingsSlice & WithdrawalSlice;
 
-type SetStoreKeys = (key: StoreKey, value: number | string) => void;
-type State = Store & {
-  setStoreValue: SetStoreKeys;
-  setWithdrawalValue: (key: keyof WithdrawalState, value: number) => void;
-};
-
+// ============================================================
+// STORE IMPLEMENTATION
+// ============================================================
 export const useStore = create<State>((set) => ({
+  // Settings Slice
+  language: "en",
+  currency: "SEK",
+  setLanguage: (language) => set({ language }),
+  setCurrency: (currency) => set({ currency }),
+
+  // Monthly Savings Slice
   investedAmount: 2500,
   expectedReturn: 12,
   timePeriod: 15,
   startingAmount: 10000,
-  language: "en",
-  currency: "SEK",
+  setMonthlySavingsValue: (key, value) => {
+    set((state) => ({ ...state, [key]: value }));
+  },
+
+  // Withdrawal Slice
   withdrawalTotalInvestment: 500000,
   withdrawalPerMonth: 10000,
   expectedReturnRate: 8,
   timePeriodYears: 5,
-  withdrawal: {
-    withdrawalTotalInvestment: 500000,
-    withdrawalPerMonth: 10000,
-    expectedReturnRate: 8,
-    timePeriodYears: 5,
-  },
-  setStoreValue: (key, value) => {
-    set((state) => ({ ...state, [key]: value }));
-  },
   setWithdrawalValue: (key, value) => {
-    set((state) => ({
-      ...state,
-      [key]: value,
-      withdrawal: { ...state.withdrawal, [key]: value },
-    }));
+    set((state) => ({ ...state, [key]: value }));
   },
 }));

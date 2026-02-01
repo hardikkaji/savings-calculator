@@ -1,6 +1,7 @@
 import type { Route } from "./+types/withdrawal";
 import { WithdrawalForm } from "~/components/withdrawal-form";
 import { WithdrawalResult } from "~/components/withdrawal-result";
+import { WithdrawalBreakdownTable } from "~/components/withdrawal-breakdown-table";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -23,6 +24,9 @@ export default function Withdrawal() {
       </div>
       <div className="flex justify-center mb-8">
         <WithdrawalResult />
+      </div>
+      <div className="flex justify-center">
+        <WithdrawalBreakdownTable />
       </div>
     </div>
   );

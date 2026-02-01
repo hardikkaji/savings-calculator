@@ -15,7 +15,7 @@ import { useStore } from "./useStore";
 import en from "./l10n/en.json";
 import sv from "./l10n/sv.json";
 import "./app.css";
-import type { SupportedLang } from "./types";
+import type { SupportedCurrency, SupportedLang } from "./types";
 
 const messages: Record<SupportedLang, Record<string, string>> = {
   en,
@@ -45,18 +45,20 @@ export function Layout({ children }: { children: React.ReactNode }) {
 export default function App() {
   const [language, setLanguage] = useState<SupportedLang>("en");
   const [_, setCurrency] = useState("SEK");
-  const setStoreValue = useStore((state) => state.setStoreValue);
+  const setStoreLanguage = useStore((state) => state.setLanguage);
+  const setStoreCurrency = useStore((state) => state.setCurrency);
 
   useEffect(() => {
     const savedLang =
       (localStorage.getItem("language") as SupportedLang) || "en";
-    const savedCurrency = localStorage.getItem("currency") || "SEK";
+    const savedCurrency =
+      (localStorage.getItem("currency") as SupportedCurrency) || "SEK";
 
     setLanguage(savedLang);
     setCurrency(savedCurrency);
-    setStoreValue("language", savedLang);
-    setStoreValue("currency", savedCurrency);
-  }, [setStoreValue]);
+    setStoreLanguage(savedLang);
+    setStoreCurrency(savedCurrency);
+  }, [setStoreLanguage, setStoreCurrency]);
 
   return (
     <IntlProvider
