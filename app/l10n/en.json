@@ -43,5 +43,17 @@
   "faq.q7.answer": "Withdrawals are capped at the remaining balance, so the account will not go negative. Once the balance reaches zero, the final value stays at zero.",
   "faq.q8.question": "How is total withdrawal calculated?",
   "faq.q8.answer": "Total withdrawal is the sum of all monthly withdrawals actually taken over the time period. If the balance is depleted, the remaining months contribute zero.",
-  "faq.footer": "Have more questions? We'll keep expanding this list as the calculator grows."
+  "faq.footer": "Have more questions? We'll keep expanding this list as the calculator grows.",
+  "withdrawal.title": "Monthly Withdrawal Calculator",
+  "withdrawal.totalInvestment": "Total Investment",
+  "withdrawal.withdrawalPerMonth": "Withdrawal per Month",
+  "withdrawal.expectedReturnRate": "Expected Return Rate (%)",
+  "withdrawal.timePeriod": "Time Period (years)",
+  "withdrawal.totalWithdrawal": "Total Withdrawal",
+  "withdrawal.finalValue": "Final Value",
+  "withdrawal.table.month": "Month",
+  "withdrawal.table.balance": "Balance",
+  "withdrawal.table.withdrawal": "Withdrawal",
+  "withdrawal.table.interest": "Interest Earned",
+  "withdrawal.table.total": "Total"
 }

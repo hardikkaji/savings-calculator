@@ -1,7 +1,9 @@
 import type { Route } from "./+types/withdrawal";
+import { useIntl } from "react-intl";
 import { WithdrawalForm } from "~/components/withdrawal-form";
 import { WithdrawalResult } from "~/components/withdrawal-result";
 import { WithdrawalBreakdownTable } from "~/components/withdrawal-breakdown-table";
+import { messages } from "~/components/messages";
 
 export function meta({}: Route.MetaArgs) {
   return [
@@ -14,10 +16,11 @@ export function meta({}: Route.MetaArgs) {
 }
 
 export default function Withdrawal() {
+  const intl = useIntl();
   return (
     <div className="p-4">
       <h1 className="text-lg font-semibold mb-2">
-        Monthly Withdrawal Calculator
+        {intl.formatMessage(messages.withdrawalTitle)}
       </h1>
       <div className="flex flex-col gap-8 mb-6 lg:flex-row lg:items-center">
         <WithdrawalForm />

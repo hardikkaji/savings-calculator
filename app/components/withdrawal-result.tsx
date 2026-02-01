@@ -2,6 +2,7 @@ import { useIntl } from "react-intl";
 import { Card } from "./ui/card";
 import { useCalculateWithdrawal } from "~/hooks/useCalculateWithdrawal";
 import { useCurrencyFormatter } from "~/hooks/useCurrencyFormatter";
+import { messages } from "./messages";
 
 export function WithdrawalResult() {
   const intl = useIntl();
@@ -14,7 +15,7 @@ export function WithdrawalResult() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="text-center">
             <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
-              Total Investment
+              {intl.formatMessage(messages.totalInvestment)}
             </p>
             <p className="text-2xl font-bold text-zinc-900 dark:text-white">
               {format(metrics.totalInvestment)}
@@ -22,7 +23,7 @@ export function WithdrawalResult() {
           </div>
           <div className="text-center">
             <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
-              Total Withdrawal
+              {intl.formatMessage(messages.totalWithdrawal)}
             </p>
             <p className="text-2xl font-bold text-orange-600">
               {format(metrics.totalWithdrawal)}
@@ -30,7 +31,7 @@ export function WithdrawalResult() {
           </div>
           <div className="text-center">
             <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-2">
-              Final Value
+              {intl.formatMessage(messages.withdrawalFinalValue)}
             </p>
             <p
               className={`text-2xl font-bold ${

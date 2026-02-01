@@ -12,7 +12,7 @@ export function WithdrawalForm() {
   return (
     <div className="mx-auto flex flex-col gap-8 w-full">
       <SliderInput
-        label="Total Investment"
+        label={intl.formatMessage(messages.totalInvestment)}
         id="withdrawal-total-investment"
         prefix={currencySymbol}
         min={0}
@@ -22,7 +22,7 @@ export function WithdrawalForm() {
         name="withdrawalTotalInvestment"
       />
       <SliderInput
-        label="Withdrawal per Month"
+        label={intl.formatMessage(messages.withdrawalPerMonth)}
         id="withdrawal-per-month"
         prefix={currencySymbol}
         min={500}
@@ -32,7 +32,7 @@ export function WithdrawalForm() {
         name="withdrawalPerMonth"
       />
       <SliderInput
-        label={intl.formatMessage(messages.expectedAnnualReturn)}
+        label={intl.formatMessage(messages.withdrawalExpectedReturnRate)}
         id="expected-return-rate"
         prefix={intl.formatMessage(messages.percent)}
         min={0}
@@ -42,7 +42,7 @@ export function WithdrawalForm() {
         name="expectedReturnRate"
       />
       <SliderInput
-        label="Time Period"
+        label={intl.formatMessage(messages.timePeriodYears)}
         id="time-period-years"
         prefix={intl.formatMessage(messages.years)}
         min={1}

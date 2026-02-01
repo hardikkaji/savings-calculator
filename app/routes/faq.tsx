@@ -1,4 +1,5 @@
 import { useIntl } from "react-intl";
+import { messages } from "~/components/messages";
 import { ChevronDown } from "lucide-react";
 import type { Route } from "./+types/faq";
 
@@ -65,7 +66,7 @@ export default function FAQ() {
   return (
     <div className="max-w-3xl mx-auto px-4 py-10">
       <h1 className="text-3xl sm:text-4xl font-semibold text-zinc-800 mb-6">
-        {intl.formatMessage({ id: "faq.title" })}
+        {intl.formatMessage(messages.faqTitle)}
       </h1>
       <div className="space-y-8">
         {faqSections.map((section) => (
@@ -91,7 +92,7 @@ export default function FAQ() {
         ))}
       </div>
       <p className="mt-6 text-sm text-zinc-500">
-        {intl.formatMessage({ id: "faq.footer" })}
+        {intl.formatMessage(messages.faqFooter)}
       </p>
     </div>
   );

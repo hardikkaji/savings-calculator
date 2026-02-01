@@ -43,5 +43,17 @@
   "faq.q7.answer": "Uttagen begränsas till återstående saldo, så kontot blir aldrig negativt. När saldot når noll förblir slutvärdet noll.",
   "faq.q8.question": "Hur beräknas totalt uttag?",
   "faq.q8.answer": "Totalt uttag är summan av alla månadsuttag som faktiskt görs under perioden. Om saldot tar slut bidrar resterande månader med noll.",
-  "faq.footer": "Har du fler frågor? Vi kommer att utöka denna lista när kalkylatorn växer."
+  "faq.footer": "Har du fler frågor? Vi kommer att utöka denna lista när kalkylatorn växer.",
+  "withdrawal.title": "Månatlig Uttagskalkylator",
+  "withdrawal.totalInvestment": "Total investering",
+  "withdrawal.withdrawalPerMonth": "Uttag per månad",
+  "withdrawal.expectedReturnRate": "Förväntad avkastning (%)",
+  "withdrawal.timePeriod": "Tidsperiod (år)",
+  "withdrawal.totalWithdrawal": "Totalt uttag",
+  "withdrawal.finalValue": "Slutvärde",
+  "withdrawal.table.month": "Månad",
+  "withdrawal.table.balance": "Saldo",
+  "withdrawal.table.withdrawal": "Uttag",
+  "withdrawal.table.interest": "Räntainkomst",
+  "withdrawal.table.total": "Totalt"
 }
