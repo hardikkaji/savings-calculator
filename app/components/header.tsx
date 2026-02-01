@@ -53,6 +53,18 @@ export function Header() {
                 Withdrwal
               </NavLink>
             </li>
+            <li>
+              <NavLink
+                to="/faq"
+                className={({ isActive }) =>
+                  `font-medium hover:text-zinc-200 ${
+                    isActive ? "text-white underline underline-offset-4" : ""
+                  }`
+                }
+              >
+                FAQ
+              </NavLink>
+            </li>
           </ul>
         </div>
         <div className="flex items-center gap-2 sm:gap-4">
@@ -104,6 +116,19 @@ export function Header() {
               onClick={() => setIsMenuOpen(false)}
             >
               Withdrwal
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/faq"
+              className={({ isActive }) =>
+                `font-medium hover:text-zinc-200 ${
+                  isActive ? "text-white underline underline-offset-4" : ""
+                }`
+              }
+              onClick={() => setIsMenuOpen(false)}
+            >
+              FAQ
             </NavLink>
           </li>
         </ul>

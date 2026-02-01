@@ -22,5 +22,17 @@
   "save": "Spara",
   "cancel": "Avbryt",
   "wealthGained": "Förmögenhet vunnen",
-  "totalValue": "Totalt värde"
+  "totalValue": "Totalt värde",
+  "faq.title": "Vanliga frågor",
+  "faq.q1.question": "Hur beräknas sparandet?",
+  "faq.q1.answer": "Vi använder ränta på ränta. Varje månad lägger vi till ditt månatliga bidrag till det aktuella saldot och tillämpar sedan en månatlig ränta härledd från den förväntade årliga avkastningen. Det slutliga saldot är summan av tillväxten på startbeloppet och alla månatliga bidrag.",
+  "faq.q2.question": "Vad betyder förväntad avkastning?",
+  "faq.q2.answer": "Förväntad avkastning är den årliga procentuella tillväxt du förväntar dig. Vi konverterar den till en månatlig ränta genom att dividera med 12 och tillämpar den varje månad.",
+  "faq.q3.question": "Är beräkningen justerad för inflation?",
+  "faq.q3.answer": "Nej. Kalkylatorn visar nominell tillväxt. För att ta hänsyn till inflation kan du minska den förväntade avkastningen med din uppskattade inflationstakt.",
+  "faq.q4.question": "Kan jag modellera oregelbundna bidrag?",
+  "faq.q4.answer": "Inte än. Den aktuella versionen förutsätter ett fast månatligt bidrag. Vi planerar att lägga till variabla bidrag i en framtida uppdatering.",
+  "faq.q5.question": "Varför ser de månatliga summorna lite annorlunda ut än det slutliga totalet?",
+  "faq.q5.answer": "Månatliga rader är avrundade för visning. Det slutliga totalet använder den fullständiga förloppsformeln, så små avrundningsskillnader kan uppstå.",
+  "faq.footer": "Har du fler frågor? Vi kommer att utöka denna lista när kalkylatorn växer."
 }

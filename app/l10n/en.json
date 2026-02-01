@@ -22,5 +22,17 @@
   "save": "Save",
   "cancel": "Cancel",
   "wealthGained": "Wealth Gained",
-  "totalValue": "Total Value"
+  "totalValue": "Total Value",
+  "faq.title": "FAQ",
+  "faq.q1.question": "How are savings calculated?",
+  "faq.q1.answer": "We use compound interest. Each month we add your monthly contribution to the current balance, then apply a monthly rate derived from the annual expected return. The final balance is the sum of the growth on the starting amount and all monthly contributions.",
+  "faq.q2.question": "What does Expected Return mean?",
+  "faq.q2.answer": "Expected Return is the annual percentage growth you anticipate. We convert it to a monthly rate by dividing by 12 and apply it each month.",
+  "faq.q3.question": "Is the calculation adjusted for inflation?",
+  "faq.q3.answer": "No. The calculator shows nominal growth. To account for inflation, you can reduce the expected return by your estimated inflation rate.",
+  "faq.q4.question": "Can I model irregular contributions?",
+  "faq.q4.answer": "Not yet. The current version assumes a fixed monthly contribution. We plan to add variable contributions in a future update.",
+  "faq.q5.question": "Why do the monthly totals look slightly different from the final total?",
+  "faq.q5.answer": "Monthly rows are rounded for display. The final total uses the full compound formula, so small rounding differences can appear.",
+  "faq.footer": "Have more questions? We'll keep expanding this list as the calculator grows."
 }
