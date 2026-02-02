@@ -10,7 +10,7 @@ interface TableProps {
 
 function SavingsExampleTable({ intl }: TableProps) {
   const { format } = useCurrencyFormatter();
-  
+
   return (
     <div className="overflow-x-auto my-4">
       <table className="w-full text-sm border-collapse">
@@ -36,8 +36,12 @@ function SavingsExampleTable({ intl }: TableProps) {
         <tbody>
           <tr className="border border-zinc-200">
             <td className="px-3 py-2 text-zinc-600">1</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(10000)}</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(500)}</td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(10000)}
+            </td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(500)}
+            </td>
             <td className="px-3 py-2 text-right text-zinc-600">{format(70)}</td>
             <td className="px-3 py-2 text-right font-semibold text-zinc-800">
               {format(10570)}
@@ -45,8 +49,12 @@ function SavingsExampleTable({ intl }: TableProps) {
           </tr>
           <tr className="border border-zinc-200 bg-zinc-50">
             <td className="px-3 py-2 text-zinc-600">2</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(10570)}</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(500)}</td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(10570)}
+            </td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(500)}
+            </td>
             <td className="px-3 py-2 text-right text-zinc-600">{format(74)}</td>
             <td className="px-3 py-2 text-right font-semibold text-zinc-800">
               {format(11144)}
@@ -61,9 +69,15 @@ function SavingsExampleTable({ intl }: TableProps) {
           </tr>
           <tr className="border border-zinc-200 bg-green-50">
             <td className="px-3 py-2 font-semibold text-zinc-800">12</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(15866)}</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(500)}</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(106)}</td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(15866)}
+            </td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(500)}
+            </td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(106)}
+            </td>
             <td className="px-3 py-2 text-right font-semibold text-green-700">
               {format(16596)}
             </td>
@@ -79,7 +93,7 @@ function SavingsExampleTable({ intl }: TableProps) {
 
 function WithdrawalExampleTable({ intl }: TableProps) {
   const { format } = useCurrencyFormatter();
-  
+
   return (
     <div className="overflow-x-auto my-4">
       <table className="w-full text-sm border-collapse">
@@ -107,18 +121,30 @@ function WithdrawalExampleTable({ intl }: TableProps) {
         <tbody>
           <tr className="border border-zinc-200">
             <td className="px-3 py-2 text-zinc-600">1</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(100000)}</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(2000)}</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(490)}</td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(100000)}
+            </td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(2000)}
+            </td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(490)}
+            </td>
             <td className="px-3 py-2 text-right font-semibold text-zinc-800">
               {format(98490)}
             </td>
           </tr>
           <tr className="border border-zinc-200 bg-zinc-50">
             <td className="px-3 py-2 text-zinc-600">2</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(98490)}</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(2000)}</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(483)}</td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(98490)}
+            </td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(2000)}
+            </td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(483)}
+            </td>
             <td className="px-3 py-2 text-right font-semibold text-zinc-800">
               {format(96973)}
             </td>
@@ -132,9 +158,15 @@ function WithdrawalExampleTable({ intl }: TableProps) {
           </tr>
           <tr className="border border-zinc-200 bg-blue-50">
             <td className="px-3 py-2 font-semibold text-zinc-800">12</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(79422)}</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(2000)}</td>
-            <td className="px-3 py-2 text-right text-zinc-600">{format(390)}</td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(79422)}
+            </td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(2000)}
+            </td>
+            <td className="px-3 py-2 text-right text-zinc-600">
+              {format(390)}
+            </td>
             <td className="px-3 py-2 text-right font-semibold text-blue-700">
               {format(77812)}
             </td>
