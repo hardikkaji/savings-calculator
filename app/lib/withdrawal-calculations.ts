@@ -36,7 +36,7 @@ export function calculateWithdrawalMetrics(
     balance -= actualWithdrawal;
     totalWithdrawal += actualWithdrawal;
 
-    // Apply monthly interest after withdrawal
+    // Then calculate interest on remaining balance
     balance = balance * (1 + monthlyRate);
   }
 
